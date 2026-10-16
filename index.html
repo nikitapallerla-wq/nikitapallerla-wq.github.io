@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f8f6f0">
-  <meta name="description" content="Nikita Pallerla — Data Analyst portfolio featuring Power BI, SQL, Excel, Python and business analytics projects.">
+  <meta name="description" content="Nikita Pallerla's Data Analytics portfolio featuring SQL, Excel, Power BI, Python, Tableau and business analytics projects.">
   <title>Nikita Pallerla | Data Analyst Portfolio</title>
 
   <style>
@@ -415,75 +415,145 @@
       color: var(--muted);
     }
 
-    /* Projects */
+    /* Projects — animated, editorial-style cards */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 25px;
+      perspective: 1200px;
     }
 
     .project-card {
+      --card-accent: var(--lime);
+      position: relative;
+      isolation: isolate;
       background: var(--white);
       border: 1.5px solid var(--ink);
       border-radius: var(--radius);
       overflow: hidden;
-      transition: transform .4s var(--ease),
-                  box-shadow .4s var(--ease);
+      box-shadow: 0 0 0 rgba(32,29,38,0);
+      transition: transform .45s var(--ease), box-shadow .45s var(--ease), border-color .35s ease;
+      transform: translateY(0) rotateX(0deg);
+    }
+
+    .project-card:nth-child(2) { --card-accent: var(--pink); }
+    .project-card:nth-child(3) { --card-accent: #c9bcff; }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--card-accent), transparent);
+      transition: left .7s var(--ease);
+      pointer-events: none;
     }
 
     .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 8px 10px 0 var(--ink);
+      transform: translateY(-10px) rotateX(1deg);
+      border-color: var(--purple);
+      box-shadow: 9px 12px 0 rgba(32,29,38,.12), 0 20px 45px rgba(65,45,105,.12);
     }
 
+    .project-card:hover::before { left: 130%; }
+
     .project-banner {
-      min-height: 180px;
-      padding: 26px;
+      min-height: 205px;
+      padding: 27px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
       overflow: hidden;
+      isolation: isolate;
+    }
+
+    .project-banner::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 220px;
+      height: 220px;
+      right: -55px;
+      top: -90px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.32);
+      box-shadow: 0 0 0 22px rgba(32,29,38,.035), 0 0 0 48px rgba(32,29,38,.025);
+      transition: transform .7s var(--ease), right .7s var(--ease), top .7s var(--ease);
     }
 
     .project-banner::after {
       content: "";
       position: absolute;
-      width: 180px;
-      height: 180px;
-      border: 24px solid rgba(32,29,38,.09);
-      border-radius: 50%;
-      right: -30px;
-      bottom: -90px;
-      transition: transform .6s var(--ease);
+      z-index: -1;
+      width: 150px;
+      height: 150px;
+      border: 1px solid rgba(32,29,38,.18);
+      border-radius: 32px;
+      right: 24px;
+      bottom: -105px;
+      transform: rotate(35deg);
+      transition: transform .7s var(--ease), bottom .7s var(--ease);
+    }
+
+    .project-card:hover .project-banner::before {
+      transform: scale(1.14);
+      right: -25px;
+      top: -70px;
     }
 
     .project-card:hover .project-banner::after {
-      transform: scale(1.3) rotate(20deg);
+      transform: rotate(52deg) scale(1.08);
+      bottom: -75px;
     }
 
     .banner-renewable { background: var(--lime); }
     .banner-ipl { background: var(--pink); }
     .banner-retail { background: #c9bcff; }
 
-    .project-number {
-      font-size: .76rem;
+    .project-category {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .7rem;
       font-weight: 900;
-      letter-spacing: 1.5px;
-    }
-
-    .project-banner h3 {
-      max-width: 390px;
-      font-size: clamp(1.6rem, 3vw, 2.3rem);
-      letter-spacing: -1px;
-      line-height: 1.12;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      padding: 8px 11px;
+      border: 1px solid rgba(32,29,38,.22);
+      border-radius: 999px;
+      background: rgba(255,255,255,.38);
+      backdrop-filter: blur(8px);
       position: relative;
       z-index: 1;
     }
 
-    .project-content {
-      padding: 26px;
+    .project-category::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
     }
+
+    .project-banner h3 {
+      max-width: 390px;
+      margin-top: 30px;
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      letter-spacing: -1.2px;
+      line-height: 1.1;
+      position: relative;
+      z-index: 1;
+      transition: transform .45s var(--ease);
+    }
+
+    .project-card:hover .project-banner h3 { transform: translateX(4px); }
+
+    .project-content { padding: 26px; }
 
     .project-content > p {
       color: var(--muted);
@@ -504,15 +574,10 @@
       border-radius: 7px;
       font-size: .75rem;
       font-weight: 800;
+      transition: background .25s ease, transform .25s ease;
     }
 
-    .project-status {
-      display: inline-block;
-      font-size: .77rem;
-      font-weight: 800;
-      line-height: 1.5;
-      margin-bottom: 18px;
-    }
+    .project-card:hover .tag { background: #e9e1ff; }
 
     .project-link {
       display: inline-flex;
@@ -521,13 +586,14 @@
       font-size: .87rem;
       font-weight: 900;
       border-bottom: 2px solid var(--purple);
-      padding-bottom: 3px;
-      transition: gap .25s, color .25s;
+      padding-bottom: 4px;
+      transition: gap .25s ease, color .25s ease, border-color .25s ease;
     }
 
     .project-link:hover {
       gap: 14px;
       color: var(--purple);
+      border-color: var(--pink);
     }
 
     /* About */
@@ -776,6 +842,13 @@
       }
     }
 
+    @media (max-width: 640px) {
+      .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+      .project-banner { min-height: 190px; padding: 22px; }
+      .project-content { padding: 22px; }
+      .project-card:hover { transform: translateY(-4px); box-shadow: 5px 7px 0 rgba(32,29,38,.12); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -823,8 +896,9 @@
 
         <p class="hero-description">
           I turn business data into <strong>clear insights and better decisions.</strong>
-          With professional experience in renewable energy operations and reporting,
-          I'm building data analytics solutions using SQL, Excel, Power BI and Python.
+          Bringing <strong>2+ years of experience</strong> in renewable energy
+          operations and reporting, I use SQL, Excel, Power BI, Python and Tableau
+          to explore business questions and communicate insights.
         </p>
 
         <div class="hero-actions">
@@ -900,6 +974,12 @@
             <h3>Python & Pandas</h3>
             <p>Data manipulation, exploratory analysis and analytical workflows.</p>
           </article>
+
+          <article class="skill-card reveal">
+            <div class="skill-icon">Tb</div>
+            <h3>Tableau</h3>
+            <p>Data visualization, interactive dashboards and business reporting.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -912,22 +992,24 @@
             <h2>Projects with<br>a purpose.</h2>
           </div>
           <p class="section-intro">
-            Portfolio projects across renewable energy, cricket analytics
-            and retail performance. Project components are being finalized.
+            Business-focused analytics projects exploring operational
+            performance, sports data and retail decision-making.
           </p>
         </div>
 
         <div class="projects-grid">
           <article class="project-card reveal">
             <div class="project-banner banner-renewable">
-              <span class="project-number">PROJECT 01 / ENERGY</span>
+              <span class="project-category">ENERGY ANALYTICS</span>
               <h3>Renewable Energy<br>Performance Analytics</h3>
             </div>
 
             <div class="project-content">
               <p>
-                An analytics solution focused on wind energy generation,
-                billing, receivables, transmission losses and operational KPIs.
+                Analyze wind energy generation and financial performance to
+                understand how operational losses, billing delays and receivables
+                affect business outcomes. Track plant-level KPIs and support
+                better loss monitoring and revenue realization.
               </p>
 
               <div class="tags">
@@ -935,10 +1017,6 @@
                 <span class="tag">Power BI</span>
                 <span class="tag">Excel</span>
               </div>
-
-              <p class="project-status">
-                In progress: Excel component and final portfolio validation.
-              </p><br>
 
               <a class="project-link"
                  href="https://github.com/nikitapallerla-wq/renewable-energy-performance-analysis"
@@ -950,14 +1028,15 @@
 
           <article class="project-card reveal reveal-delay-1">
             <div class="project-banner banner-ipl">
-              <span class="project-number">PROJECT 02 / SPORTS</span>
+              <span class="project-category">SPORTS ANALYTICS</span>
               <h3>IPL Performance<br>Analytics</h3>
             </div>
 
             <div class="project-content">
               <p>
-                An analysis of Mumbai Indians' IPL 2026 performance,
-                exploring match results, team trends and performance metrics.
+                Explore Mumbai Indians' IPL 2026 performance through match
+                results, batting and bowling trends, and team-level metrics
+                to identify patterns and support evidence-based insights.
               </p>
 
               <div class="tags">
@@ -965,10 +1044,6 @@
                 <span class="tag">Power BI</span>
                 <span class="tag">Python / Pandas</span>
               </div>
-
-              <p class="project-status">
-                In progress: Python/Pandas and Excel components, plus validation.
-              </p><br>
 
               <a class="project-link"
                  href="https://github.com/nikitapallerla-wq/mumbai-indians-ipl-2026-performance-analysis"
@@ -980,14 +1055,15 @@
 
           <article class="project-card reveal">
             <div class="project-banner banner-retail">
-              <span class="project-number">PROJECT 03 / RETAIL</span>
+              <span class="project-category">RETAIL ANALYTICS</span>
               <h3>Retail Discount &<br>Inventory Analytics</h3>
             </div>
 
             <div class="project-content">
               <p>
-                A DMart-inspired retail analytics project exploring discounts,
-                inventory, sales performance and potential business opportunities.
+                Explore sales trends, discount strategies, product profitability
+                and inventory patterns to support better pricing, product
+                assortment and inventory-planning decisions.
               </p>
 
               <div class="tags">
@@ -997,10 +1073,6 @@
                 <span class="tag">Power BI</span>
               </div>
 
-              <p class="project-status">
-                Analysis completed; repository cleanup and final validation pending.
-              </p><br>
-
               <a class="project-link"
                  href="https://github.com/nikitapallerla-wq/DMart-Retail-Analytics"
                  target="_blank" rel="noopener noreferrer">
@@ -1009,27 +1081,7 @@
             </div>
           </article>
 
-          <article class="project-card reveal reveal-delay-1">
-            <div class="project-banner" style="background:#d9e8ff">
-              <span class="project-number">MY APPROACH / ANALYTICS</span>
-              <h3>From raw data<br>to decisions.</h3>
-            </div>
 
-            <div class="project-content">
-              <p>
-                My approach combines business context, structured analysis
-                and visual storytelling to make data easier to understand and use.
-              </p>
-
-              <div class="tags">
-                <span class="tag">Business Insights</span>
-                <span class="tag">Reporting</span>
-                <span class="tag">Data Visualization</span>
-              </div>
-
-              <a class="project-link" href="#about">More about me ↘</a>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -1041,34 +1093,39 @@
           <h2>Business context.<br>Analytical mindset.</h2>
 
           <p>
-            I'm a B.Tech Computer Engineering graduate with a Data Science
-            background and professional experience in renewable energy operations,
-            reporting and business processes.
+            I'm a <strong>B.Tech Computer Engineering graduate</strong> with
+            <strong>2+ years of experience</strong> in renewable energy operations,
+            billing, receivables and business reporting.
           </p>
 
           <p>
-            My experience with monthly MIS reporting, billing, receivables and
-            operational KPIs helps me connect analytical findings to real
-            business questions.
+            I support monthly invoicing, payment follow-ups, WTG performance
+            and operational-loss monitoring, and MIS reporting—connecting
+            day-to-day operations with business performance.
           </p>
 
           <p>
-            I'm now pursuing opportunities in <strong>Data Analytics,
-            BI Analytics and Reporting</strong>, where I can combine domain
-            knowledge with data-driven problem-solving.
+            My work spans <strong>49 WTGs across 22 sites</strong>. I'm now
+            applying this industry knowledge through analytics projects using
+            SQL, Excel, Power BI, Python and Tableau.
+          </p>
+
+          <p>
+            I'm targeting <strong>Data Analyst, BI Analyst and Reporting Analyst</strong>
+            roles where I can combine my industry experience with data-driven problem-solving.
           </p>
         </div>
 
         <aside class="about-note reveal reveal-delay-1">
           <h3>What I'm looking for ↗</h3>
           <p>
-            Data Analyst, BI Analyst and Reporting Analyst roles, especially
-            opportunities that value business understanding, reporting and
-            dashboard development.
+            Business understanding, operational reporting experience and
+            analytical thinking—paired with a growing toolkit for SQL analysis,
+            dashboards and clear business insights.
           </p>
           <p>
-            <strong>Preferred location:</strong> Hyderabad<br>
-            <strong>Work preference:</strong> Hybrid or remote where available
+            Focused on turning business questions into structured analysis,
+            useful KPIs and actionable reporting.
           </p>
           <span class="note-accent">Always learning. Always improving.</span>
         </aside>
@@ -1089,11 +1146,11 @@
 
           <div class="hero-actions">
             <a class="button button-primary"
-               href="mailto:YOUR_EMAIL@example.com">
+               href="mailto:pallerlanikita@gmail.com">
               Email me ↗
             </a>
             <a class="button button-secondary"
-               href="https://www.linkedin.com/"
+               href="https://www.linkedin.com/in/nikita-pallerla/"
                target="_blank" rel="noopener noreferrer">
               LinkedIn ↗
             </a>
