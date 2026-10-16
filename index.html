@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f8f6f0">
-  <meta name="description" content="Nikita Pallerla's Data Analytics portfolio featuring SQL, Excel, Power BI, Python, Tableau and business analytics projects.">
-  <title>Nikita Pallerla | Data Analytics Portfolio</title>
+  <meta name="description" content="Nikita Pallerla — Data Analyst portfolio featuring Power BI, SQL, Excel, Python and business analytics projects.">
+  <title>Nikita Pallerla | Data Analyst Portfolio</title>
 
   <style>
     :root {
@@ -18,7 +18,8 @@
       --orange: #ff875c;
       --muted: #6d6875;
       --line: #ded9e3;
-      --white: #fff;
+      --white: #ffffff;
+      --radius: 22px;
       --ease: cubic-bezier(.22, 1, .36, 1);
     }
 
@@ -46,7 +47,8 @@
       text-decoration: none;
     }
 
-    a:focus-visible {
+    a:focus-visible,
+    button:focus-visible {
       outline: 3px solid var(--purple);
       outline-offset: 5px;
     }
@@ -61,7 +63,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(248, 246, 240, .9);
+      background: rgba(248, 246, 240, .88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(32, 29, 38, .09);
     }
@@ -75,8 +77,8 @@
     }
 
     .logo {
+      font-weight: 900;
       font-size: 1.12rem;
-      font-weight: 950;
       letter-spacing: -1px;
     }
 
@@ -86,14 +88,14 @@
 
     .nav-links {
       display: flex;
-      gap: 26px;
+      gap: 28px;
       align-items: center;
       flex-wrap: wrap;
     }
 
     .nav-links a {
       font-size: .88rem;
-      font-weight: 750;
+      font-weight: 700;
       position: relative;
       padding: 8px 0;
     }
@@ -131,7 +133,7 @@
 
     /* Hero */
     .hero {
-      min-height: 620px;
+      min-height: 630px;
       display: grid;
       grid-template-columns: 1.3fr .7fr;
       align-items: center;
@@ -230,7 +232,7 @@
       background: var(--lime);
     }
 
-    /* Animated illustration */
+    /* Decorative hero panel */
     .hero-art {
       position: relative;
       min-height: 390px;
@@ -247,8 +249,7 @@
       padding: 28px;
       box-shadow: 9px 10px 0 var(--ink);
       transform: rotate(3deg);
-      transition: transform .5s var(--ease),
-                  box-shadow .5s var(--ease);
+      transition: transform .5s var(--ease), box-shadow .5s var(--ease);
     }
 
     .hero-art:hover .art-card {
@@ -320,16 +321,18 @@
       top: 20px;
       right: -5px;
       background: var(--pink);
+      transform: rotate(7deg);
     }
 
     .tag-two {
       bottom: 20px;
       left: -15px;
       background: var(--orange);
+      transform: rotate(-5deg);
       animation-delay: -2s;
     }
 
-    /* Shared sections */
+    /* Shared section styling */
     section {
       padding: 95px 0;
     }
@@ -371,7 +374,7 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 15px;
     }
 
@@ -412,7 +415,7 @@
       color: var(--muted);
     }
 
-    /* Project cards: exactly three */
+    /* Projects */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -422,7 +425,7 @@
     .project-card {
       background: var(--white);
       border: 1.5px solid var(--ink);
-      border-radius: 22px;
+      border-radius: var(--radius);
       overflow: hidden;
       transition: transform .4s var(--ease),
                   box-shadow .4s var(--ease);
@@ -503,6 +506,14 @@
       font-weight: 800;
     }
 
+    .project-status {
+      display: inline-block;
+      font-size: .77rem;
+      font-weight: 800;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
     .project-link {
       display: inline-flex;
       align-items: center;
@@ -566,10 +577,9 @@
     .about-note p {
       color: #f0eaff;
       font-size: .95rem;
-      margin-bottom: 15px;
     }
 
-    .note-accent {
+    .about-note .note-accent {
       display: inline-block;
       background: var(--lime);
       color: var(--ink);
@@ -577,7 +587,7 @@
       border-radius: 7px;
       font-weight: 900;
       font-size: .8rem;
-      margin-top: 8px;
+      margin-top: 20px;
     }
 
     /* Contact */
@@ -624,7 +634,7 @@
       color: var(--ink);
     }
 
-    /* Entrance and scroll animations */
+    /* Animations */
     .hero-copy > * {
       animation: enter-up .75s var(--ease) both;
     }
@@ -661,8 +671,7 @@
     .reveal {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity .75s var(--ease),
-                  transform .75s var(--ease);
+      transition: opacity .75s var(--ease), transform .75s var(--ease);
     }
 
     .reveal.visible {
@@ -672,8 +681,9 @@
 
     .reveal-delay-1 { transition-delay: .1s; }
     .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
 
-    /* Tablet */
+    /* Responsive layout */
     @media (max-width: 850px) {
       .hero {
         grid-template-columns: 1fr;
@@ -690,7 +700,7 @@
       }
 
       .skills-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .about-grid {
@@ -708,7 +718,6 @@
       }
     }
 
-    /* Mobile */
     @media (max-width: 560px) {
       nav {
         padding: 14px 0;
@@ -758,11 +767,15 @@
         min-height: 350px;
       }
 
-      .tag-one { right: 0; }
-      .tag-two { left: 0; }
+      .tag-one {
+        right: 0;
+      }
+
+      .tag-two {
+        left: 0;
+      }
     }
 
-    /* Accessibility: respect reduced-motion preferences */
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -796,7 +809,6 @@
   </header>
 
   <main>
-    <!-- HERO -->
     <section class="hero container" id="home">
       <div class="hero-copy">
         <div class="eyebrow">
@@ -810,18 +822,13 @@
         </h1>
 
         <p class="hero-description">
-          I turn business data into
-          <strong>clear insights and better decisions.</strong>
-          With professional experience in renewable energy operations
-          and reporting, I'm building data analytics solutions using
-          SQL, Excel, Power BI, Python and Tableau.
+          I turn business data into <strong>clear insights and better decisions.</strong>
+          With professional experience in renewable energy operations and reporting,
+          I'm building data analytics solutions using SQL, Excel, Power BI and Python.
         </p>
 
         <div class="hero-actions">
-          <a class="button button-primary" href="#projects">
-            Explore my work ↘
-          </a>
-
+          <a class="button button-primary" href="#projects">Explore my work ↘</a>
           <a class="button button-secondary"
              href="https://github.com/nikitapallerla-wq"
              target="_blank" rel="noopener noreferrer">
@@ -856,7 +863,6 @@
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section class="skills-section" id="skills">
       <div class="container">
         <div class="section-heading reveal">
@@ -864,10 +870,9 @@
             <p class="section-label">My toolkit</p>
             <h2>Skills that tell<br>the story.</h2>
           </div>
-
           <p class="section-intro">
-            Tools for cleaning data, identifying patterns, building
-            dashboards and communicating business insights.
+            A practical toolkit for cleaning data, finding patterns,
+            building dashboards and communicating business insights.
           </p>
         </div>
 
@@ -890,22 +895,15 @@
             <p>Data modelling, relationships, measures, KPIs and interactive dashboards.</p>
           </article>
 
-          <article class="skill-card reveal">
+          <article class="skill-card reveal reveal-delay-3">
             <div class="skill-icon">Py</div>
             <h3>Python & Pandas</h3>
             <p>Data manipulation, exploratory analysis and analytical workflows.</p>
-          </article>
-
-          <article class="skill-card reveal reveal-delay-1">
-            <div class="skill-icon">Tb</div>
-            <h3>Tableau</h3>
-            <p>Data visualization, interactive dashboards and business reporting.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS: ONLY THREE CARDS -->
     <section id="projects">
       <div class="container">
         <div class="section-heading reveal">
@@ -913,15 +911,13 @@
             <p class="section-label">Selected work</p>
             <h2>Projects with<br>a purpose.</h2>
           </div>
-
           <p class="section-intro">
-            Business-focused analytics projects exploring operational
-            performance, sports data and retail decision-making.
+            Portfolio projects across renewable energy, cricket analytics
+            and retail performance. Project components are being finalized.
           </p>
         </div>
 
         <div class="projects-grid">
-          <!-- Project 1: Renewable Energy -->
           <article class="project-card reveal">
             <div class="project-banner banner-renewable">
               <span class="project-number">PROJECT 01 / ENERGY</span>
@@ -930,12 +926,8 @@
 
             <div class="project-content">
               <p>
-                Analyze wind energy generation and financial performance
-                to understand how operational losses, billing delays and
-                outstanding receivables affect business performance.
-                The project aims to track plant-level KPIs, identify
-                performance gaps and support data-driven decisions around
-                revenue realization, loss monitoring and receivables management.
+                An analytics solution focused on wind energy generation,
+                billing, receivables, transmission losses and operational KPIs.
               </p>
 
               <div class="tags">
@@ -943,6 +935,10 @@
                 <span class="tag">Power BI</span>
                 <span class="tag">Excel</span>
               </div>
+
+              <p class="project-status">
+                In progress: Excel component and final portfolio validation.
+              </p><br>
 
               <a class="project-link"
                  href="https://github.com/nikitapallerla-wq/renewable-energy-performance-analysis"
@@ -952,7 +948,6 @@
             </div>
           </article>
 
-          <!-- Project 2: IPL -->
           <article class="project-card reveal reveal-delay-1">
             <div class="project-banner banner-ipl">
               <span class="project-number">PROJECT 02 / SPORTS</span>
@@ -961,11 +956,8 @@
 
             <div class="project-content">
               <p>
-                Investigate Mumbai Indians' IPL 2026 performance through
-                match results, batting and bowling trends, and team-level
-                metrics. The objective is to explore performance patterns,
-                identify potential contributing factors behind results
-                and turn match data into clear, evidence-based insights.
+                An analysis of Mumbai Indians' IPL 2026 performance,
+                exploring match results, team trends and performance metrics.
               </p>
 
               <div class="tags">
@@ -973,6 +965,10 @@
                 <span class="tag">Power BI</span>
                 <span class="tag">Python / Pandas</span>
               </div>
+
+              <p class="project-status">
+                In progress: Python/Pandas and Excel components, plus validation.
+              </p><br>
 
               <a class="project-link"
                  href="https://github.com/nikitapallerla-wq/mumbai-indians-ipl-2026-performance-analysis"
@@ -982,21 +978,16 @@
             </div>
           </article>
 
-          <!-- Project 3: DMart Retail -->
           <article class="project-card reveal">
             <div class="project-banner banner-retail">
               <span class="project-number">PROJECT 03 / RETAIL</span>
-              <h3>DMart Retail Discount<br>& Inventory Analytics</h3>
+              <h3>Retail Discount &<br>Inventory Analytics</h3>
             </div>
 
             <div class="project-content">
               <p>
-                Explore sales trends, discount strategies, product
-                profitability and inventory performance to understand
-                factors that influence retail business outcomes. The project
-                aims to evaluate discount effectiveness and uncover patterns
-                that can support better pricing, product assortment and
-                inventory planning decisions.
+                A DMart-inspired retail analytics project exploring discounts,
+                inventory, sales performance and potential business opportunities.
               </p>
 
               <div class="tags">
@@ -1006,6 +997,10 @@
                 <span class="tag">Power BI</span>
               </div>
 
+              <p class="project-status">
+                Analysis completed; repository cleanup and final validation pending.
+              </p><br>
+
               <a class="project-link"
                  href="https://github.com/nikitapallerla-wq/DMart-Retail-Analytics"
                  target="_blank" rel="noopener noreferrer">
@@ -1013,11 +1008,32 @@
               </a>
             </div>
           </article>
+
+          <article class="project-card reveal reveal-delay-1">
+            <div class="project-banner" style="background:#d9e8ff">
+              <span class="project-number">MY APPROACH / ANALYTICS</span>
+              <h3>From raw data<br>to decisions.</h3>
+            </div>
+
+            <div class="project-content">
+              <p>
+                My approach combines business context, structured analysis
+                and visual storytelling to make data easier to understand and use.
+              </p>
+
+              <div class="tags">
+                <span class="tag">Business Insights</span>
+                <span class="tag">Reporting</span>
+                <span class="tag">Data Visualization</span>
+              </div>
+
+              <a class="project-link" href="#about">More about me ↘</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="about-section" id="about">
       <div class="container about-grid">
         <div class="about-copy reveal">
@@ -1026,52 +1042,45 @@
 
           <p>
             I'm a B.Tech Computer Engineering graduate with a Data Science
-            background and professional experience in renewable energy
-            operations, reporting and business processes.
+            background and professional experience in renewable energy operations,
+            reporting and business processes.
           </p>
 
           <p>
-            My experience with monthly MIS reporting, billing, receivables
-            and operational KPIs helps me connect analytical findings
-            to real business questions.
+            My experience with monthly MIS reporting, billing, receivables and
+            operational KPIs helps me connect analytical findings to real
+            business questions.
           </p>
 
           <p>
-            I'm pursuing opportunities in
-            <strong>Data Analytics, BI Analytics and Reporting</strong>,
-            where I can combine domain knowledge with data-driven problem-solving.
+            I'm now pursuing opportunities in <strong>Data Analytics,
+            BI Analytics and Reporting</strong>, where I can combine domain
+            knowledge with data-driven problem-solving.
           </p>
         </div>
 
         <aside class="about-note reveal reveal-delay-1">
-          <h3>What I bring ↗</h3>
-
+          <h3>What I'm looking for ↗</h3>
           <p>
-            Business understanding, operational reporting experience,
-            analytical thinking and a growing technical toolkit.
+            Data Analyst, BI Analyst and Reporting Analyst roles, especially
+            opportunities that value business understanding, reporting and
+            dashboard development.
           </p>
-
           <p>
-            I enjoy transforming business questions into structured analysis,
-            clear dashboards and useful insights.
+            <strong>Preferred location:</strong> Hyderabad<br>
+            <strong>Work preference:</strong> Hybrid or remote where available
           </p>
-
           <span class="note-accent">Always learning. Always improving.</span>
         </aside>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
         <div class="contact-box reveal">
           <div>
-            <p class="section-label" style="color:#201d26">
-              Have an opportunity?
-            </p>
-
+            <p class="section-label" style="color:#201d26">Have an opportunity?</p>
             <h2>Let's make data<br>make sense.</h2>
-
             <p>
               I'd love to connect with recruiters, analytics professionals
               and teams working on meaningful data problems.
@@ -1080,12 +1089,11 @@
 
           <div class="hero-actions">
             <a class="button button-primary"
-               href="mailto:pallerlanikita@gmail.com">
+               href="mailto:YOUR_EMAIL@example.com">
               Email me ↗
             </a>
-
             <a class="button button-secondary"
-               href="https://www.linkedin.com/in/nikita-pallerla/"
+               href="https://www.linkedin.com/"
                target="_blank" rel="noopener noreferrer">
               LinkedIn ↗
             </a>
@@ -1095,7 +1103,6 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container footer-inner">
       <span>© <span id="year"></span> <strong>Nikita Pallerla</strong></span>
@@ -1105,33 +1112,29 @@
   </footer>
 
   <script>
-    // Animate sections and cards as they enter the viewport.
+    // Reveal sections and cards as they enter the viewport.
     const revealItems = document.querySelectorAll(".reveal");
 
     if ("IntersectionObserver" in window) {
-      const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.12,
-          rootMargin: "0px 0px -30px 0px"
-        }
-      );
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: "0px 0px -30px 0px"
+      });
 
       revealItems.forEach((item) => revealObserver.observe(item));
     } else {
       revealItems.forEach((item) => item.classList.add("visible"));
     }
 
-    // Update the copyright year automatically.
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    // Keep the copyright year current.
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
