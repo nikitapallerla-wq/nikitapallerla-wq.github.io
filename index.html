@@ -4,239 +4,708 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nikita Pallerla's Data Analyst portfolio featuring SQL, Excel, Power BI and Python projects.">
-  <title>Nikita Pallerla | Data Analyst Portfolio</title>
+  <meta name="theme-color" content="#f7f4ed">
+  <meta name="description" content="Nikita Pallerla's Data Analyst portfolio showcasing renewable energy, retail, and IPL analytics projects.">
+  <title>Nikita Pallerla | Data Analytics Portfolio</title>
+
   <style>
     :root {
-      --navy: #142b3b;
-      --teal: #087f8c;
-      --light: #f4f8fa;
-      --text: #243746;
-      --muted: #627483;
+      --paper: #f7f4ed;
+      --ink: #20211f;
+      --purple: #6b42e8;
+      --lime: #d8fa63;
+      --pink: #ff8eac;
+      --orange: #ff784e;
+      --blue: #b8d9ff;
+      --muted: #66665f;
+      --line: #dedbd1;
       --white: #ffffff;
+      --radius: 22px;
     }
+
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--light);
-      line-height: 1.7;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
     }
-    a { color: var(--teal); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    header {
-      background: var(--navy);
-      color: var(--white);
-      padding: 18px 7%;
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { opacity: .8; }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .wrap {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    header strong { font-size: 1.1rem; }
-    nav { display: flex; gap: 20px; flex-wrap: wrap; }
-    nav a { color: var(--white); font-size: 0.95rem; }
-    .hero {
-      background: linear-gradient(135deg, #142b3b, #176b78);
-      color: var(--white);
-      padding: 85px 7% 90px;
-    }
-    .hero-inner, main { max-width: 1080px; margin: auto; }
-    .eyebrow {
-      color: #a8e3df;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.8rem;
-    }
-    h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.15; margin: 12px 0; }
-    .hero p { max-width: 680px; font-size: 1.1rem; color: #e0edf1; }
-    .buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
-    .btn {
-      display: inline-block;
-      background: #ffffff;
-      color: var(--navy);
-      padding: 11px 19px;
-      border-radius: 7px;
-      font-weight: bold;
-    }
-    .btn.secondary { background: transparent; color: white; border: 1px solid #b9d5dc; }
-    main { padding: 20px 24px 60px; }
-    section { padding-top: 38px; }
-    h2 { color: var(--navy); font-size: 1.8rem; margin-bottom: 8px; }
-    .intro { color: var(--muted); margin-top: 0; }
-    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .skill {
-      background: white;
-      border: 1px solid #dce6eb;
-      border-radius: 8px;
-      padding: 9px 14px;
-      font-weight: bold;
-      font-size: 0.93rem;
-    }
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      justify-content: space-between;
       gap: 20px;
-      margin-top: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line);
     }
-    .card {
-      background: white;
-      border: 1px solid #e0e8ed;
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 5px 18px rgba(20,43,59,0.04);
+
+    .brand {
+      font-weight: 900;
+      font-size: 1.05rem;
+      letter-spacing: -.7px;
+    }
+
+    .brand span { color: var(--purple); }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 78px 0 64px;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: center;
+      gap: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .77rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: #43a86c;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: clamp(3.3rem, 8vw, 6.6rem);
+      letter-spacing: -.075em;
+      line-height: .98;
+      margin: 24px 0;
+      font-weight: 950;
+    }
+
+    h1 .highlight {
+      color: var(--purple);
+      display: block;
+    }
+
+    .hero-copy {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 590px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 19px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: .9rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 4px 4px 0 var(--ink);
+      opacity: 1;
+    }
+
+    .btn-dark { background: var(--ink); color: white; }
+    .btn-light { background: transparent; }
+
+    .hero-art {
+      background: var(--lime);
+      min-height: 340px;
+      border: 2px solid var(--ink);
+      border-radius: 48% 48% 24px 24px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+      position: relative;
+      transform: rotate(2deg);
     }
-    .card h3 { color: var(--navy); margin: 8px 0; font-size: 1.2rem; }
-    .card p { color: var(--muted); font-size: 0.96rem; }
-    .tools { font-size: 0.85rem; font-weight: bold; color: var(--teal); }
-    .status { font-size: 0.8rem; color: #526b39; font-weight: bold; }
-    .card a { margin-top: auto; padding-top: 10px; font-weight: bold; }
-    .about {
+
+    .art-label {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-weight: 900;
+    }
+
+    .art-title {
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      font-weight: 950;
+      line-height: 1.05;
+      letter-spacing: -.06em;
+    }
+
+    .art-chip {
+      align-self: flex-start;
       background: white;
-      border: 1px solid #e0e8ed;
-      border-radius: 12px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-weight: 800;
+      font-size: .82rem;
+      transform: rotate(-4deg);
+    }
+
+    .art-star {
+      position: absolute;
+      right: 24px;
+      top: 18px;
+      font-size: 3rem;
+    }
+
+    .ticker {
+      overflow: hidden;
+      background: var(--ink);
+      color: var(--lime);
+      padding: 14px 0;
+      font-weight: 900;
+      font-size: .85rem;
+      letter-spacing: 1.4px;
+      text-align: center;
+    }
+
+    section { padding: 68px 0; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .kicker {
+      font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--purple);
+      font-weight: 950;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.08;
+      letter-spacing: -.06em;
+      margin: 8px 0 0;
+      font-weight: 950;
+    }
+
+    .section-note {
+      color: var(--muted);
+      max-width: 370px;
+      margin: 0;
+      font-size: .95rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .skill {
+      border: 2px solid var(--ink);
+      border-radius: 16px;
+      padding: 20px 16px;
+      font-weight: 900;
+      font-size: 1rem;
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .skill:nth-child(4n+1) { background: var(--pink); }
+    .skill:nth-child(4n+2) { background: var(--blue); }
+    .skill:nth-child(4n+3) { background: var(--lime); }
+    .skill:nth-child(4n) { background: #dfd2ff; }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      box-shadow: 6px 6px 0 var(--ink);
+    }
+
+    .project-visual {
+      min-height: 190px;
       padding: 24px;
+      border-bottom: 2px solid var(--ink);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visual-renewable { background: var(--lime); }
+    .visual-retail { background: var(--pink); }
+    .visual-ipl { background: var(--blue); }
+
+    .project-number {
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: 1.4px;
+    }
+
+    .visual-symbol {
+      font-size: 4.4rem;
+      line-height: 1;
+      align-self: flex-end;
+    }
+
+    .visual-title {
+      font-size: 1.7rem;
+      font-weight: 950;
+      line-height: 1.05;
+      letter-spacing: -.05em;
+      max-width: 260px;
+    }
+
+    .project-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project h3 {
+      font-size: 1.45rem;
+      line-height: 1.2;
+      letter-spacing: -.04em;
+      margin: 12px 0;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: .94rem;
+      margin: 0 0 18px;
+    }
+
+    .tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 18px;
+    }
+
+    .tool {
+      font-size: .75rem;
+      font-weight: 800;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #f0eee8;
+      border: 1px solid #d8d5cd;
+    }
+
+    .status {
+      font-size: .78rem;
+      font-weight: 850;
+      margin-top: auto;
+      padding: 9px 11px;
+      border-radius: 8px;
+      background: #f3f0e8;
+    }
+
+    .status.complete {
+      background: #e2f7d8;
+      color: #235d2e;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 900;
       margin-top: 18px;
     }
-    footer {
-      text-align: center;
-      background: var(--navy);
-      color: #e0edf1;
-      padding: 26px 7%;
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 24px;
     }
-    footer a { color: #a8e3df; }
+
+    .about-card {
+      border: 2px solid var(--ink);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .about-card.purple { background: #dfd2ff; }
+    .about-card.white { background: white; }
+
+    .about-card h3 {
+      font-size: 1.45rem;
+      margin: 0 0 12px;
+      letter-spacing: -.04em;
+    }
+
+    .about-card p {
+      margin: 0 0 12px;
+      color: #494943;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .fact {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px;
+    }
+
+    .fact strong { display: block; font-size: .92rem; }
+    .fact span { color: var(--muted); font-size: .8rem; }
+
+    .contact {
+      background: var(--orange);
+      border: 2px solid var(--ink);
+      border-radius: 28px;
+      padding: clamp(28px, 6vw, 60px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact h2 { max-width: 570px; }
+    .contact p { max-width: 520px; }
+
+    footer {
+      padding: 28px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: .83rem;
+      color: var(--muted);
+    }
+
+    .small-links { display: flex; gap: 18px; font-weight: 800; }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding-top: 54px; }
+      .hero-art { min-height: 260px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 600px) {
-      header { padding: 16px 5%; }
-      nav { gap: 12px; }
-      .hero { padding: 60px 6%; }
-      main { padding: 10px 6% 45px; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      .nav-links { gap: 14px; }
+      .projects { grid-template-columns: 1fr; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      section { padding: 48px 0; }
+      .skills-grid { gap: 8px; }
+      .skill { padding: 13px 10px; min-height: 70px; font-size: .88rem; }
+      .hero-art { border-radius: 100px 100px 20px 20px; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <strong>Nikita Pallerla</strong>
-    <nav>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <header class="wrap">
+    <div class="nav">
+      <a class="brand" href="#home">NIKITA<span>.</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow">Data Analyst Portfolio</div>
-      <h1>Hi, I'm Nikita.</h1>
-      <h2 style="color:#d4f0ee">Turning data into business insights.</h2>
-      <p>
-        B.Tech in Computer Engineering with 2+ years of experience in
-        renewable energy operations, billing and MIS reporting.
-        I am building practical analytics solutions to turn data
-        into meaningful business insights.
-      </p>
-      <div class="buttons">
-        <a class="btn" href="#projects">Explore My Projects</a>
-        <a class="btn secondary" href="https://github.com/nikitapallerla-wq">GitHub Profile</a>
-      </div>
-    </div>
-  </section>
-
   <main>
-    <section id="skills">
-      <h2>Technical Skills</h2>
-      <p class="intro">Tools and techniques I use in data analytics.</p>
-      <div class="skills">
-        <span class="skill">SQL / PostgreSQL</span>
-        <span class="skill">Microsoft Excel</span>
-        <span class="skill">Power BI</span>
-        <span class="skill">DAX</span>
-        <span class="skill">Python / Pandas</span>
-        <span class="skill">Data Cleaning</span>
-        <span class="skill">Data Visualization</span>
-        <span class="skill">MIS Reporting</span>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>Featured Projects</h2>
-      <p class="intro">Practical projects exploring operational, retail and sports data.</p>
-      <div class="projects">
-        <article class="card">
-          <div>🌱</div>
-          <h3>Renewable Energy Analytics</h3>
-          <div class="tools">Excel · SQL · Power BI</div>
-          <p>
-            Analysis of energy generation, billing, receivables,
-            transmission losses, RKVAH losses and operational KPIs.
+    <div class="wrap">
+      <section class="hero" id="home">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Data Analytics Portfolio</div>
+          <h1>Hi, I'm<br><span class="highlight">Nikita.</span></h1>
+          <p class="hero-copy">
+            I turn business data into clearer decisions. With a background
+            in renewable energy operations, billing and MIS reporting,
+            I'm building practical analytics projects using SQL, Excel,
+            Power BI and Python.
           </p>
-          <span class="status">Project work in progress</span>
-          <a href="https://github.com/nikitapallerla-wq/renewable-energy-performance-analysis">View GitHub Repository →</a>
-        </article>
+          <div class="actions">
+            <a class="btn btn-dark" href="#projects">Explore my work ↘</a>
+            <a class="btn btn-light" href="https://github.com/nikitapallerla-wq">GitHub ↗</a>
+          </div>
+        </div>
 
-        <article class="card">
-          <div>🛒</div>
-          <h3>DMart Retail Analysis</h3>
-          <div class="tools">Excel · SQL · Python/Pandas · Power BI</div>
-          <p>
-            Retail analysis exploring sales, discounts, product
-            performance and inventory-related business insights.
+        <div class="hero-art" aria-label="Data analytics themed introduction">
+          <span class="art-star" aria-hidden="true">✳</span>
+          <div class="art-label">Curious mind. Business focus.</div>
+          <div class="art-title">DATA<br>→ INSIGHT<br>→ ACTION</div>
+          <span class="art-chip">SQL + BI + ANALYTICS</span>
+          <span class="art-chip">Business-first thinking ↗</span>
+        </div>
+      </section>
+    </div>
+
+    <div class="ticker">
+      SQL &nbsp; ✳ &nbsp; EXCEL &nbsp; ✳ &nbsp; POWER BI &nbsp; ✳ &nbsp; PYTHON &nbsp; ✳ &nbsp; BUSINESS INSIGHTS
+    </div>
+
+    <div class="wrap">
+      <section id="skills">
+        <div class="section-head">
+          <div>
+            <div class="kicker">My toolkit</div>
+            <h2>Tools I work with.</h2>
+          </div>
+          <p class="section-note">
+            Practical analytics skills for cleaning data, understanding
+            performance and communicating findings.
           </p>
-          <span class="status">Project completed; repository validation pending</span>
-          <a href="https://github.com/nikitapallerla-wq/DMart-Retail-Analytics">View GitHub Repository →</a>
-        </article>
+        </div>
 
-        <article class="card">
-          <div>🏏</div>
-          <h3>Mumbai Indians IPL Analysis</h3>
-          <div class="tools">SQL · Excel · Python/Pandas · Power BI</div>
-          <p>
-            A sports analytics project examining team and player
-            performance and investigating factors behind the season's results.
+        <div class="skills-grid">
+          <div class="skill">▦ &nbsp; Excel</div>
+          <div class="skill">⌘ &nbsp; SQL / PostgreSQL</div>
+          <div class="skill">▥ &nbsp; Power BI & DAX</div>
+          <div class="skill">⌁ &nbsp; Python / Pandas</div>
+          <div class="skill">✳ &nbsp; Data Cleaning</div>
+          <div class="skill">↗ &nbsp; Data Visualization</div>
+          <div class="skill">▤ &nbsp; MIS Reporting</div>
+          <div class="skill">◎ &nbsp; KPI Analysis</div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Selected work</div>
+            <h2>Projects with purpose.</h2>
+          </div>
+          <p class="section-note">
+            Business-focused case studies across renewable energy,
+            retail analytics and cricket performance.
           </p>
-          <span class="status">Project work in progress</span>
-          <a href="https://github.com/nikitapallerla-wq/mumbai-indians-ipl-2026-performance-analysis">View GitHub Repository →</a>
-        </article>
-      </div>
-    </section>
+        </div>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="about">
-        <p>
-          My professional background is in renewable energy operations,
-          monthly billing, receivables monitoring and MIS reporting.
-          I am developing my data analytics portfolio to combine this
-          business experience with SQL, Excel, Power BI and Python.
-        </p>
-        <p>
-          I am interested in Data Analyst, BI Analyst and Reporting
-          Analyst opportunities where data can support better business decisions.
-        </p>
-        <p><strong>Location:</strong> Hyderabad, India · Open to suitable hybrid and remote opportunities.</p>
-      </div>
-    </section>
+        <div class="projects">
+          <article class="project">
+            <div class="project-visual visual-renewable">
+              <div class="project-number">PROJECT 01 / ENERGY</div>
+              <div class="visual-title">Powering better<br>decisions.</div>
+              <div class="visual-symbol" aria-hidden="true">↗</div>
+            </div>
+            <div class="project-body">
+              <div class="kicker">Operational analytics</div>
+              <h3>Renewable Energy Performance Analytics</h3>
+              <p>
+                An operational and financial analytics project focused on
+                energy generation, billing, receivables, transmission
+                losses, RKVAH losses and performance KPIs.
+              </p>
+              <div class="tools">
+                <span class="tool">SQL</span>
+                <span class="tool">Power BI</span>
+                <span class="tool">Excel planned</span>
+              </div>
+              <div class="status">In progress — Excel analysis remaining</div>
+              <a class="project-link" href="https://github.com/nikitapallerla-wq/renewable-energy-performance-analysis">
+                View repository ↗
+              </a>
+            </div>
+          </article>
 
-    <section id="contact">
-      <h2>Let's Connect</h2>
-      <p class="intro">Explore my work or connect with me professionally.</p>
-      <p>
-        <a href="https://github.com/nikitapallerla-wq">GitHub</a>
-        &nbsp; · &nbsp;
-        <a href="YOUR_LINKEDIN_URL">LinkedIn</a>
-      </p>
-    </section>
+          <article class="project">
+            <div class="project-visual visual-retail">
+              <div class="project-number">PROJECT 02 / RETAIL</div>
+              <div class="visual-title">Retail data.<br>Smarter choices.</div>
+              <div class="visual-symbol" aria-hidden="true">✳</div>
+            </div>
+            <div class="project-body">
+              <div class="kicker">Retail analytics</div>
+              <h3>DMart Retail Discount & Inventory Analysis</h3>
+              <p>
+                A retail analytics case study exploring sales, discounts,
+                product performance and inventory-related business
+                questions using multiple analytics tools.
+              </p>
+              <div class="tools">
+                <span class="tool">Excel</span>
+                <span class="tool">SQL</span>
+                <span class="tool">Python / Pandas</span>
+                <span class="tool">Power BI</span>
+              </div>
+              <div class="status complete">Analysis completed — repository cleanup and validation pending</div>
+              <a class="project-link" href="https://github.com/nikitapallerla-wq/DMart-Retail-Analytics">
+                View repository ↗
+              </a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project-visual visual-ipl">
+              <div class="project-number">PROJECT 03 / SPORTS</div>
+              <div class="visual-title">Beyond the<br>scoreboard.</div>
+              <div class="visual-symbol" aria-hidden="true">🏏</div>
+            </div>
+            <div class="project-body">
+              <div class="kicker">Sports analytics</div>
+              <h3>Mumbai Indians IPL 2026 Performance Analysis</h3>
+              <p>
+                A performance analysis project investigating team and
+                player trends and exploring factors behind Mumbai Indians'
+                season results.
+              </p>
+              <div class="tools">
+                <span class="tool">SQL</span>
+                <span class="tool">Power BI</span>
+                <span class="tool">Excel planned</span>
+                <span class="tool">Python / Pandas planned</span>
+              </div>
+              <div class="status">In progress — Excel and Python/Pandas remaining</div>
+              <a class="project-link" href="https://github.com/nikitapallerla-wq/mumbai-indians-ipl-2026-performance-analysis">
+                View repository ↗
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-head">
+          <div>
+            <div class="kicker">A little about me</div>
+            <h2>Business context<br>meets data.</h2>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card purple">
+            <h3>My background</h3>
+            <p>
+              B.Tech in Computer Engineering, with a focus on Data Science
+              and 2+ years of professional experience in renewable energy
+              operations and reporting.
+            </p>
+            <div class="facts">
+              <div class="fact">
+                <strong>2+ years</strong>
+                <span>Professional experience</span>
+              </div>
+              <div class="fact">
+                <strong>Hyderabad</strong>
+                <span>India</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-card white">
+            <h3>What I bring</h3>
+            <p>
+              Experience with monthly billing, receivables monitoring,
+              energy statements, operational loss tracking and MIS
+              reporting gives me business context for analytics.
+            </p>
+            <p>
+              I'm developing hands-on projects to strengthen my skills in
+              SQL, Excel, Power BI, DAX and Python/Pandas.
+            </p>
+            <p>
+              <strong>Interested in:</strong> Data Analyst, BI Analyst
+              and Reporting Analyst opportunities, particularly hybrid
+              or remote roles.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact">
+          <div>
+            <div class="eyebrow">Have an opportunity?</div>
+            <h2>Let's turn data into something useful.</h2>
+            <p>
+              Explore my projects on GitHub or connect with me on LinkedIn
+              to discuss data analytics opportunities.
+            </p>
+          </div>
+          <div class="actions">
+            <a class="btn btn-dark" href="https://github.com/nikitapallerla-wq">GitHub ↗</a>
+            <a class="btn btn-light" href="YOUR_LINKEDIN_URL">LinkedIn ↗</a>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
 
-  <footer>
-    <p>© 2026 Nikita Pallerla · Data Analyst Portfolio</p>
-    <p>Built with HTML and CSS · Hosted on GitHub Pages</p>
+  <footer class="wrap">
+    <span>© 2026 Nikita Pallerla · Data Analytics Portfolio</span>
+    <div class="small-links">
+      <a href="https://github.com/nikitapallerla-wq">GitHub</a>
+      <a href="YOUR_LINKEDIN_URL">LinkedIn</a>
+      <a href="#home">Back to top ↑</a>
+    </div>
   </footer>
 </body>
 </html>
