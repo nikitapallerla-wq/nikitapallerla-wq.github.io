@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f8f6f0">
-  <meta name="description" content="Nikita Pallerla's Data Analyst portfolio featuring SQL, Excel, Power BI, Python and business analytics projects.">
-  <title>Nikita Pallerla | Data Analyst Portfolio</title>
+  <meta name="description" content="Nikita Pallerla's Data Analytics portfolio featuring SQL, Excel, Power BI, Python, Tableau and business analytics projects.">
+  <title>Nikita Pallerla | Data Analytics Portfolio</title>
 
   <style>
     :root {
@@ -320,14 +320,12 @@
       top: 20px;
       right: -5px;
       background: var(--pink);
-      transform: rotate(7deg);
     }
 
     .tag-two {
       bottom: 20px;
       left: -15px;
       background: var(--orange);
-      transform: rotate(-5deg);
       animation-delay: -2s;
     }
 
@@ -373,7 +371,7 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 15px;
     }
 
@@ -414,7 +412,7 @@
       color: var(--muted);
     }
 
-    /* Project cards */
+    /* Projects */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -504,14 +502,6 @@
       border-radius: 7px;
       font-size: .75rem;
       font-weight: 800;
-    }
-
-    .project-status {
-      display: block;
-      font-size: .77rem;
-      font-weight: 800;
-      line-height: 1.5;
-      margin-bottom: 18px;
     }
 
     .project-link {
@@ -635,7 +625,7 @@
       color: var(--ink);
     }
 
-    /* Entrance and scroll animations */
+    /* Animations */
     .hero-copy > * {
       animation: enter-up .75s var(--ease) both;
     }
@@ -702,7 +692,7 @@
       }
 
       .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .about-grid {
@@ -774,7 +764,7 @@
       .tag-two { left: 0; }
     }
 
-    /* Accessibility: respect reduced-motion preferences */
+    /* Accessibility */
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -826,7 +816,7 @@
           <strong>clear insights and better decisions.</strong>
           With professional experience in renewable energy operations
           and reporting, I'm building data analytics solutions using
-          SQL, Excel, Power BI and Python.
+          SQL, Excel, Power BI, Python and Tableau.
         </p>
 
         <div class="hero-actions">
@@ -878,8 +868,8 @@
           </div>
 
           <p class="section-intro">
-            A practical toolkit for cleaning data, finding patterns,
-            building dashboards and communicating business insights.
+            Tools for cleaning data, identifying patterns, building
+            dashboards and communicating business insights.
           </p>
         </div>
 
@@ -902,10 +892,16 @@
             <p>Data modelling, relationships, measures, KPIs and interactive dashboards.</p>
           </article>
 
-          <article class="skill-card reveal reveal-delay-3">
+          <article class="skill-card reveal">
             <div class="skill-icon">Py</div>
             <h3>Python & Pandas</h3>
             <p>Data manipulation, exploratory analysis and analytical workflows.</p>
+          </article>
+
+          <article class="skill-card reveal reveal-delay-1">
+            <div class="skill-icon">Tb</div>
+            <h3>Tableau</h3>
+            <p>Data visualization, interactive dashboards and business reporting.</p>
           </article>
         </div>
       </div>
@@ -921,13 +917,13 @@
           </div>
 
           <p class="section-intro">
-            Portfolio projects across renewable energy, cricket analytics
-            and retail performance. Project components are being finalized.
+            Business-focused analytics projects exploring operational
+            performance, sports data and retail decision-making.
           </p>
         </div>
 
         <div class="projects-grid">
-          <!-- Project 1 -->
+          <!-- Project 1: Renewable Energy -->
           <article class="project-card reveal">
             <div class="project-banner banner-renewable">
               <span class="project-number">PROJECT 01 / ENERGY</span>
@@ -936,8 +932,12 @@
 
             <div class="project-content">
               <p>
-                An analytics solution focused on wind energy generation,
-                billing, receivables, transmission losses and operational KPIs.
+                Analyze wind energy generation and financial performance
+                to understand how operational losses, billing delays and
+                outstanding receivables affect business performance.
+                The project aims to track plant-level KPIs, identify
+                performance gaps and support data-driven decisions around
+                revenue realization, loss monitoring and receivables management.
               </p>
 
               <div class="tags">
@@ -945,10 +945,6 @@
                 <span class="tag">Power BI</span>
                 <span class="tag">Excel</span>
               </div>
-
-              <p class="project-status">
-                In progress: Excel component and final portfolio validation.
-              </p>
 
               <a class="project-link"
                  href="https://github.com/nikitapallerla-wq/renewable-energy-performance-analysis"
@@ -958,7 +954,7 @@
             </div>
           </article>
 
-          <!-- Project 2 -->
+          <!-- Project 2: IPL -->
           <article class="project-card reveal reveal-delay-1">
             <div class="project-banner banner-ipl">
               <span class="project-number">PROJECT 02 / SPORTS</span>
@@ -967,8 +963,11 @@
 
             <div class="project-content">
               <p>
-                An analysis of Mumbai Indians' IPL 2026 performance,
-                exploring match results, team trends and performance metrics.
+                Investigate Mumbai Indians' IPL 2026 performance through
+                match results, batting and bowling trends, and team-level
+                metrics. The objective is to explore performance patterns,
+                identify potential contributing factors behind results
+                and turn match data into clear, evidence-based insights.
               </p>
 
               <div class="tags">
@@ -976,10 +975,6 @@
                 <span class="tag">Power BI</span>
                 <span class="tag">Python / Pandas</span>
               </div>
-
-              <p class="project-status">
-                In progress: Python/Pandas and Excel components, plus validation.
-              </p>
 
               <a class="project-link"
                  href="https://github.com/nikitapallerla-wq/mumbai-indians-ipl-2026-performance-analysis"
@@ -989,17 +984,21 @@
             </div>
           </article>
 
-          <!-- Project 3 -->
+          <!-- Project 3: Retail -->
           <article class="project-card reveal">
             <div class="project-banner banner-retail">
               <span class="project-number">PROJECT 03 / RETAIL</span>
-              <h3>Retail Discount &<br>Inventory Analytics</h3>
+              <h3>DMart Retail Discount<br>& Inventory Analytics</h3>
             </div>
 
             <div class="project-content">
               <p>
-                A DMart-inspired retail analytics project exploring discounts,
-                inventory, sales performance and potential business opportunities.
+                Explore sales trends, discount strategies, product
+                profitability and inventory performance to understand
+                factors that influence retail business outcomes. The project
+                aims to evaluate discount effectiveness and uncover patterns
+                that can support better pricing, product assortment and
+                inventory planning decisions.
               </p>
 
               <div class="tags">
@@ -1008,10 +1007,6 @@
                 <span class="tag">Python / Pandas</span>
                 <span class="tag">Power BI</span>
               </div>
-
-              <p class="project-status">
-                Analysis completed; repository cleanup and final validation pending.
-              </p>
 
               <a class="project-link"
                  href="https://github.com/nikitapallerla-wq/DMart-Retail-Analytics"
@@ -1031,7 +1026,9 @@
             <div class="project-content">
               <p>
                 My approach combines business context, structured analysis
-                and visual storytelling to make data easier to understand and use.
+                and visual storytelling to make data easier to understand.
+                I focus on connecting analytical findings to practical
+                business questions and decisions.
               </p>
 
               <div class="tags">
@@ -1111,13 +1108,11 @@
           </div>
 
           <div class="hero-actions">
-            <!-- Correct email destination -->
             <a class="button button-primary"
                href="mailto:pallerlanikita@gmail.com">
               Email me ↗
             </a>
 
-            <!-- Replace this URL if your actual LinkedIn profile URL differs -->
             <a class="button button-secondary"
                href="https://www.linkedin.com/in/nikita_pallerla"
                target="_blank" rel="noopener noreferrer">
